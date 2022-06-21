@@ -55,11 +55,13 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   )
   expect(productDetails().length).toEqual(2)
 
-  expect(typeof productDetails('Martelo', 'Prego')).toEqual('object')
+  expect(typeof productDetails('Martelo', 'Prego')).toEqual('object');
 
-  expect((para2 !== para1) && (productDetails('Martelo', 'Prego')[0] !== productDetails('Martelo', 'Prego')[1])).toEqual(true)
+  expect(Array.isArray(productDetails('Garrafa', 'Copo'))).toEqual(true);
 
-  const prod = productDetails('Martelo', 'Prego')
+  expect((para2 !== para1) && (productDetails('Martelo', 'Prego')[0] !== productDetails('Martelo', 'Prego')[1])).toEqual(true);
+
+  const prod = productDetails('Martelo', 'Prego');
   
   expect(prod[0].details.productId.endsWith('123')).toEqual(true)
   expect(prod[1].details.productId.endsWith('123')).toEqual(true)
