@@ -40,6 +40,9 @@ const productDetails = (firstProduct, secondProduct) => [
       productId: `${secondProduct}123`,
     },
   },
+  
 ];
+
+console.log(productDetails('Martelo', 'Prego')[1].details.productId[7]);
 
 module.exports = productDetails;

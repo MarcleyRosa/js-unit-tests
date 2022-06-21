@@ -31,8 +31,40 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
-    // ESCREVA SEUS TESTES ABAIXO:
+
+    const para1 = productDetails('Martelo', 'Prego')[0].name
+    const para2 = productDetails('Martelo', 'Prego')[1].name
+    
+    expect(typeof productDetails).toEqual('function')
+    // expect(productDetails('Tinta', 'Marreta')).toContainEqual('Tinta')
+    
+    expect(productDetails('Pincel', 'Martelo')).toEqual([
+      {
+        name: 'Pincel',
+        details: {
+          productId: 'Pincel123'
+        }
+      },
+      {
+        name: 'Martelo',
+        details: {
+          productId: 'Martelo123'
+        }
+      }
+    ]
+  )
+  expect(productDetails().length).toEqual(2)
+
+  expect(typeof productDetails('Martelo', 'Prego')).toEqual('object')
+
+  expect((para2 !== para1) && (productDetails('Martelo', 'Prego')[0] !== productDetails('Martelo', 'Prego')[1])).toEqual(true)
+
+  const prod = productDetails('Martelo', 'Prego')
+  
+  expect(prod[0].details.productId.endsWith('123')).toEqual(true)
+  expect(prod[1].details.productId.endsWith('123')).toEqual(true)
+  
+  // ESCREVA SEUS TESTES ABAIXO:
     // Teste se productDetails é uma função.
     // Teste se o retorno da função é um array.
     // Teste se o array retornado pela função contém dois itens dentro.
